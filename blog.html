@@ -96,10 +96,11 @@
 
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto">
-                                <a href="index.html" class="nav-item nav-link">Home</a>
+                                <a href="index.html" class="nav-item nav-link active">Home</a>
                                 <a href="about.html" class="nav-item nav-link">About</a>
                                 <a href="service.html" class="nav-item nav-link">Service</a>
                                 <a href="portfolio.html" class="nav-item nav-link">Project</a>
+                                <a href="blog.html" class="nav-item nav-link">Blogs</a>
                               <!--
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
@@ -117,124 +118,157 @@
                 </div>
             </div>
             <!-- Nav Bar End -->
-
- 
             
             <!-- Page Header Start -->
             <div class="page-header">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <h2>Terms of use</h2>
+                            <h2>Our Blog</h2>
                         </div>
                         <div class="col-12">
                             <a href="index.html">Home</a>
-                            <a href="">Terms of use</a>
+                            <a href="">Our Blog</a>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Page Header End -->
-            
-            
-<!-- FAQs Start -->
- 
-<div class="faqs" id="faqs">
+
+<!-- Blog Start -->
+<div class="blog">
     <div class="container">
-      <div class="section-header text-center">
-        <p>Terms of Use</p>
-        <h2>Our Terms of Use</h2>
-      </div>
-  
-      <center>
-        <p class="card-link collapsed">
-          By accessing and using the services of All County Construction Services Inc., you agree to comply with and be bound by our terms of use. All content, images, and information provided on this website are for informational purposes only and are subject to change without notice. Unauthorized use or duplication of any materials is strictly prohibited. We reserve the right to modify or discontinue any aspect of our website or services at any time. Your continued use of our platform indicates your acceptance of these terms and any future updates.
-        </p>
-      </center>
+        <div class="section-header text-center">
+            <p>Latest Blog</p>
+            <h2>Latest From Our Blog</h2>
+        </div>
+        <div id="blogCards" class="row blog-page d-flex justify-content-center">
+            <!-- Blogs will be inserted here dynamically -->
+        </div>
     </div>
-  </div>
-  
-<!-- FAQs End -->
+</div>
+<!-- Blog End -->
+<script>
+    async function fetchAndRenderBlogs() {
+        const res = await fetch('https://blogs-admin-editor.vercel.app/api/construction/blogs');
+        const blogs = await res.json();
+        const blogCardsContainer = document.getElementById('blogCards');
+        blogCardsContainer.innerHTML = '';
 
+        if (blogs.length === 0) {
+            const noBlogsMsg = document.createElement('div');
+            noBlogsMsg.className = 'col-12 text-center text-muted mt-4';
+            noBlogsMsg.innerText = 'No blogs posted yet.';
+            blogCardsContainer.appendChild(noBlogsMsg);
+            return;
+        }
 
+        blogs.forEach((blog, index) => {
+            const blogCard = document.createElement('div');
+            blogCard.className = 'col-lg-4 col-md-6 wow fadeInUp';
+            blogCard.setAttribute('data-wow-delay', `${0.1 * index}s`);
 
-                      <!-- Footer Start -->
-                      <div class="footer wow fadeIn" data-wow-delay="0.3s">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="footer-contact">
-                                        <h2>Office Contact</h2>
-                                        <p><i class="fa fa-map-marker-alt"></i>470 Citi Centre St#1228, Winter Haven, FL 33880</p>
-                                        <p><i class="fa fa-phone-alt"></i>+(407) 686 3865</p>
-                                        <p><i class="fa fa-envelope"></i>Marcus@allcountyfl.com</p>
-                                        <div class="footer-social">
-                                            <a href="https://www.facebook.com/profile.php?id=61567198422479"><i class="fab fa-facebook-f"></i></a>
-                                            <a href="https://www.instagram.com/allcountyconstructionfl?igsh=bHd0cHI1YWIyNjFx"><i class="fab fa-instagram"></i></a>
-                                           </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="footer-link">
-                                        <h2>Service Areas</h2>
-                                        <a href="#">General Contracting</a>
-                                        <a href="#">Home Renovations</a>
-                                        <a href="#">Remodeling Services</a>
-                                        <a href="#">Flooring & Tile Work</a>
-                                        <a href="#">Custom Carpentry</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="footer-link">
-                                        <h2>Useful Pages</h2>
-                                        <a href="about.html">About Us</a>
-                                        <a href="contact.html">Contact Us</a>
-                                        <a href="index.html#team">Our Team</a>
-                                        <a href="portfolio.html">Projects</a>
-                                        <a href="index.html#testimonials">Testimonial</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="newsletter">
-                                        <h2>About Us</h2>
-                                        <p>
-                                            With years of experience in residential and commercial construction, All County Construction delivers quality craftsmanship, dependable service, and complete customer satisfaction on every project.
-                                        </p>
-                                        <!--
-                                        <div class="form">
-                                            <input class="form-control" placeholder="Email here">
-                                            <button class="btn">Submit</button>
-                                        </div> 
-                                       -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container footer-menu">
-                            <div class="f-menu">
-                                <a href="terms-of-use.html">Terms of use</a>
-                                <a href="privacy-policy.html">Privacy policy</a>
-                                <a href="contact.html">Help</a>
-                                <a href="index.html#faqs">FQAs</a>
-                            </div>
-                        </div>
-                        
-                        <div class="container copyright">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p>&copy; <a href="#">All County Construction</a>, All Right Reserved.</p>
-                                </div>
-                                
-                                
-                                <div class="col-md-6">
-                                    <p>Credit <a href="#">Wajih ul Hassan</a></p>
-                                </div>
-                            </div>
+            blogCard.innerHTML = `
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="${blog.imageUrl}" alt="${blog.title}">
+                    </div>
+                    <div class="blog-title">
+                        <h3>${blog.title}</h3>
+                        <a class="btn" href="blog-details.html?blogId=${blog._id}">+</a>
+                    </div>
+                    <div class="blog-meta">
+                        <p>By <a href="#">Admin</a></p>
+                        <p>In <a href="#">${blog.category}</a></p>
+                    </div>
+                    <div class="blog-text">
+                        <p>${blog.description.length > 100 ? blog.description.slice(0, 100) + '...' : blog.description}</p>
+                    </div>
+                </div>
+            `;
+            blogCardsContainer.appendChild(blogCard);
+        });
+    }
+
+    fetchAndRenderBlogs();
+</script>
+
+          <!-- Footer Start -->
+          <div class="footer wow fadeIn" data-wow-delay="0.3s">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-contact">
+                            <h2>Office Contact</h2>
+                            <p><i class="fa fa-map-marker-alt"></i>470 Citi Centre St#1228, Winter Haven, FL 33880</p>
+                            <p><i class="fa fa-phone-alt"></i>+(407) 686 3865</p>
+                            <p><i class="fa fa-envelope"></i>Marcus@allcountyfl.com</p>
+                            <div class="footer-social">
+                                <a href="https://www.facebook.com/profile.php?id=61567198422479"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/allcountyconstructionfl?igsh=bHd0cHI1YWIyNjFx"><i class="fab fa-instagram"></i></a>
+                               </div>
                         </div>
                     </div>
-                    <!-- Footer End -->
-        
-            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-link">
+                            <h2>Service Areas</h2>
+                            <a href="#">General Contracting</a>
+                            <a href="#">Home Renovations</a>
+                            <a href="#">Remodeling Services</a>
+                            <a href="#">Flooring & Tile Work</a>
+                            <a href="#">Custom Carpentry</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-link">
+                            <h2>Useful Pages</h2>
+                            <a href="about.html">About Us</a>
+                            <a href="contact.html">Contact Us</a>
+                            <a href="index.html#team">Our Team</a>
+                            <a href="portfolio.html">Projects</a>
+                            <a href="index.html#testimonials">Testimonial</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="newsletter">
+                            <h2>About Us</h2>
+                            <p>
+                                With years of experience in residential and commercial construction, All County Construction delivers quality craftsmanship, dependable service, and complete customer satisfaction on every project.
+                            </p>
+                            <!--
+                            <div class="form">
+                                <input class="form-control" placeholder="Email here">
+                                <button class="btn">Submit</button>
+                            </div> 
+                           -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container footer-menu">
+                <div class="f-menu">
+                    <a href="terms-of-use.html">Terms of use</a>
+                    <a href="privacy-policy.html">Privacy policy</a>
+                    <a href="contact.html">Help</a>
+                    <a href="index.html#faqs">FQAs</a>
+                </div>
+            </div>
+            
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; <a href="#">All County Construction</a>, All Right Reserved.</p>
+                    </div>
+                    
+                    
+                    <div class="col-md-6">
+                        <p>Credit <a href="#">Wajih ul Hassan</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
         </div>
 
         <!-- JavaScript Libraries -->
