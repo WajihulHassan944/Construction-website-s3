@@ -29,6 +29,7 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
     </head>
+
     <body>
         <div class="wrapper">
             <!-- Top Bar Start -->
@@ -109,7 +110,7 @@
                                     </div>
                                 </div>  
                               -->
-                                <a href="contact.html" class="nav-item nav-link active">Contact</a>
+                                <a href="contact.html" class="nav-item nav-link">Contact</a>
                             </div>
                             
                         </div>
@@ -125,128 +126,37 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <h2>Contact Us</h2>
+                            <h2>Privacy Policy</h2>
                         </div>
                         <div class="col-12">
                             <a href="index.html">Home</a>
-                            <a href="">Contact Us</a>
+                            <a href="">Privacy Policy</a>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Page Header End -->
+            
+            
+<!-- FAQs Start --><div class="faqs" id="faqs">
+  <div class="container">
+    <div class="section-header text-center">
+      <p>Privacy Policy</p>
+      <h2>Our privacy policy</h2>
+    </div>
+
+    <center>
+      <p class="card-link collapsed">
+        At All County Construction Services Inc., we value your privacy and are committed to protecting your personal information. Any data collected through our website, including your name, email, or message, is used solely for communication and service-related purposes. We do not sell, share, or distribute your information to third parties without your explicit consent. By using our contact form, you agree to our privacy practices. Your trust is important to us, and we ensure that your data is handled with care and confidentiality.
+      </p>
+    </center>
+  </div>
+</div>
+
+<!-- FAQs End -->
 
 
-            <!-- Contact Start -->
-            <div class="contact wow fadeInUp">
-                <div class="container">
-                    <div class="section-header text-center">
-                        <p>Get In Touch</p>
-                        <h2>For Any Query</h2>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="contact-info">
-                                <div class="contact-item">
-                                    <i class="flaticon-address"></i>
-                                    <div class="contact-text">
-                                        <h2>Location</h2>
-                                        <p>470 Citi Centre St#1228, Winter Haven, FL 33880</p>
-                                    </div>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="flaticon-call"></i>
-                                    <div class="contact-text">
-                                        <h2>Phone</h2>
-                                        <p>+(407) 686 3865</p>
-                                    </div>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="flaticon-send-mail"></i>
-                                    <div class="contact-text">
-                                        <h2>Email</h2>
-                                        <p>angelica@allcountyfl.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="contact-form">
-                                <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                                    <div class="control-group">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="control-group">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="control-group">
-                                        <input type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="control-group">
-                                        <textarea class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div>
-                                        <button class="btn" type="submit" id="sendMessageButton">Send Message</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Contact End -->
 
-            <script>
-                document.getElementById('contactForm').addEventListener('submit', async function (e) {
-                  e.preventDefault();
-              
-                  const sendButton = document.getElementById('sendMessageButton');
-                  sendButton.textContent = 'Sending...';
-                  sendButton.disabled = true;
-              
-                  const name = document.getElementById('name').value.trim();
-                  const email = document.getElementById('email').value.trim();
-                  const subject = document.getElementById('subject').value.trim();
-                  const message = document.getElementById('message').value.trim();
-              
-                  const formData = {
-                    name: name,
-                    email: email,
-                    subject: subject,
-                    message: message
-                  };
-              
-                  try {
-                    const response = await fetch('https://blogs-admin-editor.vercel.app/send-data-myportfolio', {
-                      method: 'POST',
-                      headers: {
-                        'Content-Type': 'application/json'
-                      },
-                      body: JSON.stringify(formData)
-                    });
-              
-                    if (response.ok) {
-                      sendButton.textContent = 'Sent!';
-                      document.getElementById('contactForm').reset();
-                    } else {
-                      sendButton.textContent = 'Try Again';
-                    }
-                  } catch (error) {
-                    console.error('Error:', error);
-                    sendButton.textContent = 'Error';
-                  }
-              
-                  setTimeout(() => {
-                    sendButton.textContent = 'Send Message';
-                    sendButton.disabled = false;
-                  }, 3000);
-                });
-              </script>
-              
                       <!-- Footer Start -->
                       <div class="footer wow fadeIn" data-wow-delay="0.3s">
                         <div class="container">
@@ -307,6 +217,7 @@
                                 <a href="index.html#faqs">FQAs</a>
                             </div>
                         </div>
+                        
                         <div class="container copyright">
                             <div class="row">
                                 <div class="col-md-6">
@@ -336,10 +247,6 @@
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/slick/slick.min.js"></script>
-        
-        <!-- Contact Javascript File -->
-        <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
